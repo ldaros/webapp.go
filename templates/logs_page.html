@@ -1,0 +1,28 @@
+{{define "content"}} {{template "breadcrumb" .}}
+
+<!-- Title -->
+<div class="container space">
+  <h1 class="title">Logs</h1>
+  <p class="subtitle mt-2">List of logs</p>
+  <hr />
+</div>
+
+<!-- Page content -->
+<button
+  class="button is-primary"
+  href="/views/log_list"
+  hx-get="/views/log_list"
+  hx-trigger="load, click"
+  hx-target="#log-container"
+  hx-swap="outerHTML"
+>
+  <span class="icon">
+    <i class="fas fa-sync"></i>
+  </span>
+  <span>Refresh</span>
+  
+</button>
+
+<div id="log-container" class="skeleton-block mt-5">
+</div>
+{{end}}

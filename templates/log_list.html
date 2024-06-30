@@ -1,16 +1,43 @@
-<ul class="log-list">
-  {{if .Logs}} {{range .Logs}}
-  <li>
-    <span class="log-id">{{ .ID }}</span>
-    <span class="log-sequence-id">{{ .SequenceID }}</span>
-    <span class="log-name">{{ .Name }}</span>
-    <span class="log-input">{{ .Input }}</span>
-    <span class="log-output">{{ .Output }}</span>
-    <span class="log-start-time">{{ .StartTime }}</span>
-    <span class="log-end-time">{{ .EndTime }}</span>
-    <span class="log-tokens">{{ .Tokens }}</span>
-  </li>
-  {{end}} {{else}}
-  <li class="no-logs">No logs found</li>
-  {{end}}
-</ul>
+<div id="log-container" class="container mt-5">
+  <table class="table is-fullwidth is-hoverable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Input</th>
+        <th>Output</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Tokens</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{if .LogGroups}} 
+        {{range .LogGroups}} 
+          {{range .Logs}}
+            <tr 
+              {{if .IsLeader}}
+                id="log-group-leader-{{ .Log.SequenceID }}"
+                onclick="toggleLogGroup({{ .Log.SequenceID }})"
+              {{else}}
+                class="log-group-{{ .Log.SequenceID }} is-hidden"
+              {{end}}
+            > 
+              <td>{{ .Log.ID }}</td>
+              <td>{{ .Log.Name }}</td>
+              <td class="is-family-code">{{ .Log.Input }}</td>
+              <td class="is-family-code">{{ .Log.Output }}</td>
+              <td>{{ .Log.StartTime }}</td>
+              <td>{{ .Log.EndTime }}</td>
+              <td>{{ .Log.Tokens }}</td>
+            </tr>
+          {{end}} 
+        {{end}} 
+      {{else}}
+      <tr class="no-logs">
+        <td colspan="6">No logs found</td>
+      </tr>
+      {{end}}
+    </tbody>
+  </table>
+</div>

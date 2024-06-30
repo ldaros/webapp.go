@@ -1,0 +1,11 @@
+{{define "breadcrumb"}}
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    {{range .BreadcrumbItems}}
+    <li {{if .Active}}class="is-active"{{end}}>
+      <a href="{{.URL}}" {{if .Active}}aria-current="page"{{end}}>{{.Name}}</a>
+    </li>
+    {{end}}
+  </ul>
+</nav>
+{{end}}

@@ -1,0 +1,11 @@
+{{define "menu"}}
+<aside class="menu column is-2">
+    <p class="menu-label">General</p>
+    <ul class="menu-list">
+    {{range .MenuItems}}
+    <li>
+        <a href="{{.URL}}" class="{{if .Active}}is-active{{end}}">{{.Name}}</a>
+    </li>
+    {{end}}
+</aside>
+{{end}}
