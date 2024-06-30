@@ -1,0 +1,16 @@
+<ul class="log-list">
+  {{if .Logs}} {{range .Logs}}
+  <li>
+    <span class="log-id">{{ .ID }}</span>
+    <span class="log-sequence-id">{{ .SequenceID }}</span>
+    <span class="log-name">{{ .Name }}</span>
+    <span class="log-input">{{ .Input }}</span>
+    <span class="log-output">{{ .Output }}</span>
+    <span class="log-start-time">{{ .StartTime }}</span>
+    <span class="log-end-time">{{ .EndTime }}</span>
+    <span class="log-tokens">{{ .Tokens }}</span>
+  </li>
+  {{end}} {{else}}
+  <li class="no-logs">No logs found</li>
+  {{end}}
+</ul>

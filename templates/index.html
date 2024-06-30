@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/assets/js/htmx.min.js"></script>
+    <title>Log API</title>
+  </head>
+  <body>
+    <h1>Log API</h1>
+
+    <h2>Logs</h2>
+    <button
+      hx-get="/views/log_list"
+      hx-trigger="click"
+      hx-target="#log-container"
+    >
+      Refresh
+    </button>
+
+    <div id="log-container" hx-get="/views/log_list" hx-trigger="load"></div>
+  </body>
+</html>

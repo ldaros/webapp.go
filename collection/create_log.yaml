@@ -1,0 +1,17 @@
+version: "1.0"
+name: Create Log
+url: "http://localhost:3000/api/log"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body: |-
+  {
+    "sequence_id":"123",
+    "name":"Test Log",
+    "input":"This is a test log",
+    "output":"This is a test log",
+    "start_time":"2021-01-01T00:00:00Z",
+    "end_time":"2021-01-01T00:00:00Z",
+    "tokens":0
+  }
