@@ -17,6 +17,7 @@ func main() {
 	mux.HandleFunc("/views/log_list", controllers.LogListHandler())
 	mux.HandleFunc("/", controllers.HomePageHandler)
 	mux.HandleFunc("/logs", controllers.LogsPageHandler)
+	mux.HandleFunc("/chat", controllers.ChatPageHandler)
 
 	// Serve static files from the /assets directory
 	mux.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))

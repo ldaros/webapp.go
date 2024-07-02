@@ -13,15 +13,9 @@ type LogsPageContent struct {
 
 func RenderLogsPage(w http.ResponseWriter) {
 	content := LogsPageContent{
-		Title: "Home",
-		MenuItems: []MenuItem{
-			{URL: "/", Name: "Home", Active: false},
-			{URL: "/logs", Name: "Logs", Active: true},
-		},
-		BreadcrumbItems: []BreadcrumbItem{
-			{URL: "#", Name: "General", Active: false},
-			{URL: "/logs", Name: "Logs", Active: true},
-		},
+		Title:           "Logs",
+		MenuItems:       GetMenuItems("/logs"),
+		BreadcrumbItems: GetBreadcrumbItems("Logs", "/logs"),
 	}
 
 	tmpl := template.Must(template.ParseFiles(

@@ -12,3 +12,7 @@ func HomePageHandler(w http.ResponseWriter, r *http.Request) {
 func LogsPageHandler(w http.ResponseWriter, r *http.Request) {
 	views.RenderLogsPage(w)
 }
+
+func ChatPageHandler(w http.ResponseWriter, r *http.Request) {
+	views.RenderChatPage(w)
+}
