@@ -10,7 +10,7 @@
 <div id="chat" class="container">
   <div
     id="chat-window"
-    class="skeleton-block"
+    class="p-2 skeleton-block"
     hx-get="/views/chat_history"
     hx-trigger="load"
     hx-swap="outerHTML"
@@ -26,9 +26,21 @@
     hx-target="#chat-window"
     hx-swap="outerHTML"
     hx-vars="{'id': new URLSearchParams(window.location.search).get('id'), 'message': document.getElementById('chat-textarea').value}"
+    hx-on:submit="document.getElementById('chat-textarea').value = ''"
+    hx-on::before-request="document.getElementById('button-send').classList.add('is-loading')"
+    hx-on::after-request="document.getElementById('button-send').classList.remove('is-loading')"
   >
-    <textarea id="chat-textarea" class="textarea" placeholder="Message"></textarea>
-    <button class="button is-primary mt-3">Send</button>
+    <textarea
+      id="chat-textarea"
+      class="textarea"
+      placeholder="Message"
+    ></textarea>
+    <button id="button-send" class="button is-primary mt-3">
+      <span class="icon">
+        <i class="fas fa-paper-plane"></i>
+      </span>
+      <span>Send</span>
+    </button>
   </form>
 </div>
 {{end}}

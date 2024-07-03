@@ -1,0 +1,8 @@
+version: "1.0"
+name: Get Chat
+url: "http://localhost:3001/api/chat"
+method: GET
+query:
+  id: 997ffb2b-cfce-4590-9198-eb50ac34f214
+headers:
+  Accept: application/json

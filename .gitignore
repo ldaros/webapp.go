@@ -1,2 +1,6 @@
 *templ.go
+*.exe
+node_modules/
+
 db.json
+.env

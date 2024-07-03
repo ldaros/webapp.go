@@ -1,4 +1,8 @@
-<div id="chat-window" class="p-2">
+<div
+  id="chat-window"
+  class="p-2"
+  hx-on::load="document.getElementById('chat-window').scrollTo(0, document.getElementById('chat-window').scrollHeight)"
+>
   <!-- Agent -->
   {{range .ChatMessages}}
   <div class="columns">
@@ -11,11 +15,9 @@
     >
       <div class="box">
         <div class="content">
+          <p><strong>{{.Username}}</strong></p>
+          <p>{{.Message | markDown}}</p>
           <p>
-            <strong>{{.Username}}</strong>
-            <br />
-            {{.Message}}
-            <br />
             <small>{{.Time}}</small>
           </p>
         </div>
