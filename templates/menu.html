@@ -4,7 +4,7 @@
     <ul class="menu-list">
     {{range .MenuItems}}
     <li>
-        <a href="{{.URL}}" class="{{if .Active}}is-active{{end}}">{{.Name}}</a>
+        <a href="{{.URL}}" {{if .Active}}class="is-active"{{end}}>{{.Name}}</a>
     </li>
     {{end}}
 </aside>

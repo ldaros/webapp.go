@@ -1,5 +1,4 @@
 {{define "content"}} {{template "breadcrumb" .}}
-
 <!-- Title -->
 <div class="container space">
   <h1 class="title">Chat</h1>
@@ -7,5 +6,29 @@
   <hr />
 </div>
 
-<!-- Page content -->
+<!-- Chat -->
+<div id="chat" class="container">
+  <div
+    id="chat-window"
+    class="skeleton-block"
+    hx-get="/views/chat_history"
+    hx-trigger="load"
+    hx-swap="outerHTML"
+    hx-vars="{'id': new URLSearchParams(window.location.search).get('id')}"
+  ></div>
+
+  <!-- Form -->
+  <form
+    id="chat-input"
+    class="field mt-6"
+    hx-post="/views/chat_send"
+    hx-trigger="submit"
+    hx-target="#chat-window"
+    hx-swap="outerHTML"
+    hx-vars="{'id': new URLSearchParams(window.location.search).get('id'), 'message': document.getElementById('chat-textarea').value}"
+  >
+    <textarea id="chat-textarea" class="textarea" placeholder="Message"></textarea>
+    <button class="button is-primary mt-3">Send</button>
+  </form>
+</div>
 {{end}}

@@ -1,0 +1,26 @@
+<div id="chat-window" class="p-2">
+  <!-- Agent -->
+  {{range .ChatMessages}}
+  <div class="columns">
+    <div
+      {{if.IsAgent}}
+      class="column is-6"
+      {{else}}
+      class="column is-6 is-offset-6"
+      {{end}}
+    >
+      <div class="box">
+        <div class="content">
+          <p>
+            <strong>{{.Username}}</strong>
+            <br />
+            {{.Message}}
+            <br />
+            <small>{{.Time}}</small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{end}}
+</div>
